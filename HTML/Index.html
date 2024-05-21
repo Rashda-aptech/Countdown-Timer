@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="C:\Users\Face\OneDrive\Desktop\Countdown Timer\CSS\Style.css">
+</head>
+<script>
+    const targetDate = new Date("May 10, 2024 15:00:00").getTime();
+
+const countdownInterval = setInterval(() => {
+    const now = new Date().getTime();
+
+    const timeDifference = targetDate - now;
+
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+        (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+
+    // Check if the countdown has expired
+    //if (timeDifference < 0) {
+    //  clearInterval(countdownInterval);
+    //document.getElementById("timer").innerHTML = "Countdown expired";
+    // }
+}, 1000);
+</script>
+
+<body>
+    <!--Start div-->
+    <div id="countdown">
+
+        <p id="timer">
+
+            <span id="days"></span>
+            <span class="timer-unit">Days</span>
+
+            <span id="hours"></span>
+            <span class="timer-unit">Hours</span>
+
+            <span id="minutes"></span>
+            <span class="timer-unit">Minutes</span>
+
+            <span id="seconds"></span>
+            <span class="timer-unit">Seconds</span>
+
+        </p>
+    </div>
+    <!--End div-->
+
+    
+</body>
+</html>
+
